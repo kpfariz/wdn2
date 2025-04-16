@@ -1,0 +1,2562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Electronics Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        
+.scroll-down-indicator {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: float 2s infinite ease-in-out;
+  }
+  
+  .scroll-text {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 8px;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+    opacity: 0.8;
+  }
+  
+  .arrow-down {
+    width: 24px;
+    height: 24px;
+    border-right: 2px solid white;
+    border-bottom: 2px solid white;
+    transform: rotate(45deg);
+    margin-top: 5px;
+    animation: bounce 2s infinite;
+  }
+  
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) translateX(-50%);
+    }
+    50% {
+      transform: translateY(-10px) translateX(-50%);
+    }
+  }
+  
+  @keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+      opacity: 0.7;
+      transform: rotate(45deg) translateY(0);
+    }
+    40% {
+      opacity: 1;
+      transform: rotate(45deg) translateY(-10px);
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .scroll-down-indicator {
+      bottom: 20px;
+    }
+    .scroll-text {
+      font-size: 0.8rem;
+    }
+    .arrow-down {
+      width: 20px;
+      height: 20px;
+    }
+  }
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .scroll-down {
+      bottom: 20px;
+    }
+    
+    .scroll-down-arrow {
+      width: 15px;
+      height: 15px;
+    }
+  }
+  .cool-blue {
+    color:  rgba(0, 188, 212, 0.8);
+  }
+  .btn-cool-blue {
+    background-color: rgba(0, 188, 212, 0.8);
+    border-color:  rgba(0, 188, 212, 0.8);
+    
+  }
+  
+  .btn-cool-blue:hover {
+    background-color:#2c3e50;
+    border-color: #2c3e50;
+  }
+  
+  :root {
+    --electric-blue: #00a8ff;
+    --deep-blue: #0077b6;
+    --cool-gray: #f8f9fa;
+    --dark-gray: #333;
+  }
+  
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--cool-gray);
+    overflow-x: hidden;
+  }
+  
+  /* Modern Navigation */
+  .nav-modern {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    padding: 0.8rem 0;
+  }
+  
+  .nav-brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--deep-blue);
+  }
+  
+  .nav-brand span {
+    color: var(--electric-blue);
+  }
+  
+  .nav-link-modern {
+    font-weight: 500;
+    color: var(--dark-gray);
+    padding: 0.5rem 1.2rem;
+    transition: all 0.3s;
+    border-radius: 8px;
+  }
+  
+  .nav-link-modern:hover, .nav-link-modern.active {
+    color: var(--electric-blue);
+    background: rgba(0, 168, 255, 0.1);
+  }
+  
+  .account-btn-modern {
+    background: var(--electric-blue);
+    color: white;
+    border-radius: 8px;
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.3s;
+    border: none;
+  }
+  
+  .account-btn-modern:hover {
+    background: var(--deep-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 168, 255, 0.3);
+  }
+  
+  /* Hero Section with Background */
+  .hero-modern {
+    position: relative;
+    height: 90vh;
+    min-height: 700px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+  
+  .hero-bg-modern {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-size: cover;
+    background-position: center;
+    animation: modernSlideShow 20s infinite;
+  }
+  
+  @keyframes modernSlideShow {
+    0%, 25% {
+      background-image: url('https://static-assets.business.amazon.com/assets/in/24th-jan/705_Website_Blog_Appliances_1450x664.jpg.transform/1450x664/image.jpg');
+      opacity: 1;
+      transform: scale(1);
+    }
+    30%, 55% {
+      background-image: url('https://images.unsplash.com/photo-1556740738-b6a63e27c4df?q=80&w=3000&auto=format&fit=crop');
+      opacity: 1;
+      transform: scale(1.02);
+    }
+    60%, 85% {
+      background-image: url('https://aws-obg-image-lb-1.tcl.com/content/dam/brandsite/region/in/blog/pc/detail/how-to-select-an-air-conditioner-for-your-home-desktop.jpg');
+      opacity: 1;
+      transform: scale(1.01);
+    }
+    90%, 100% {
+      background-image: url('https://static-assets.business.amazon.com/assets/in/24th-jan/705_Website_Blog_Appliances_1450x664.jpg.transform/1450x664/image.jpg');
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Modern transition effect */
+  .hero-bg-modern::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      to right,
+      rgba(0,0,0,0.1) 0%,
+      rgba(0,0,0,0) 20%,
+      rgba(0,0,0,0) 80%,
+      rgba(0,0,0,0.1) 100%
+    );
+    z-index: 2;
+    animation: slideTransition 20s infinite;
+  }
+  
+  @keyframes slideTransition {
+    0%, 25%, 30%, 55%, 60%, 85%, 90%, 100% {
+      background-position: -100% 0;
+    }
+    26%, 56%, 86% {
+      background-position: 100% 0;
+    }
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 3;
+  }
+  
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 2;
+  }
+  
+  .hero-content-modern {
+    position: relative;
+    z-index: 3;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+  }
+  
+  .hero-title-modern {
+    font-size: 3.2rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    animation: fadeInDown 1s ease-out;
+  }
+  
+  .hero-subtitle-modern {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 2.5rem;
+    opacity: 0.9;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    animation: fadeInUp 1s ease-out 0.3s both;
+  }
+  
+  .hero-buttons-modern {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 3rem;
+    animation: fadeInUp 1s ease-out 0.6s both;
+  }
+  
+  .btn-modern {
+    padding: 0.9rem 2.2rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+  }
+  
+  .btn-primary-modern {
+    background: var(--electric-blue);
+    color: white;
+    border: 2px solid var(--electric-blue);
+    box-shadow: 0 4px 15px rgba(0, 168, 255, 0.4);
+  }
+  
+  .btn-primary-modern:hover {
+    background: var(--deep-blue);
+    border-color: var(--deep-blue);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 119, 182, 0.5);
+  }
+  
+  .btn-outline-modern {
+    background: transparent;
+    color: white;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+  }
+  
+  .btn-outline-modern:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: white;
+    transform: translateY(-3px);
+  }
+  
+  .hero-features-modern {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out 0.9s both;
+  }
+  
+  .feature-item-modern {
+    display: flex;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.7rem 1.5rem;
+    border-radius: 50px;
+    backdrop-filter: blur(5px);
+  }
+  
+  .feature-item-modern i {
+    margin-right: 0.7rem;
+    font-size: 1.1rem;
+  }
+  
+  .hero-disclaimer-modern {
+    font-size: 0.8rem;
+    opacity: 0.8;
+    max-width: 700px;
+    margin: 0 auto;
+    animation: fadeIn 1s ease-out 1.2s both;
+  }
+  
+  /* Featured Categories Section */
+  .categories-section {
+    padding: 5rem 0;
+    background: white;
+  }
+  
+  .category-card {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s ease;
+    height: 100%;
+  }
+  
+  .category-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 168, 255, 0.15);
+  }
+  
+  .category-img {
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .category-content {
+    padding: 1.5rem;
+  }
+  
+  /* Animations */
+  @keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  @keyframes zoomInOut {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 992px) {
+    .hero-title-modern {
+        font-size: 2.5rem;
+    }
+    
+    .hero-subtitle-modern {
+        font-size: 1.3rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .hero-modern {
+        height: auto;
+        min-height: auto;
+        padding: 6rem 0;
+    }
+    
+    .hero-buttons-modern {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-modern {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .hero-title-modern {
+        font-size: 2.2rem;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .hero-title-modern {
+        font-size: 1.8rem;
+    }
+    
+    .hero-subtitle-modern {
+        font-size: 1.1rem;
+    }
+    
+    .feature-item-modern {
+        font-size: 0.9rem;
+        padding: 0.6rem 1.2rem;
+    }
+  }
+    .deal-card {
+      position: relative;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  }
+    
+  .deal-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      border-color: #ff6b6b;
+  }
+  
+  .deal-card .badge {
+      font-size: 0.9rem;
+      padding: 5px 10px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      background: linear-gradient(135deg, #ff6b6b, #dc3545);
+      border-radius: 4px;
+      z-index: 2;
+  }
+  
+  .deal-card .card-img-top {
+      height: 180px;
+      object-fit: contain;
+      padding: 20px;
+      background: #f9f9f9;
+      transition: transform 0.3s;
+  }
+  
+  .deal-card:hover .card-img-top {
+      transform: scale(1.05);
+  }
+  
+  .deal-card .card-body {
+      padding: 1.25rem;
+      position: relative;
+  }
+  
+  .deal-card .card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: #333;
+      min-height: 50px;
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+  }
+  
+  .deal-card .text-danger {
+      color: #dc3545 !important;
+      font-size: 1.1rem;
+  }
+  
+  .deal-card .badge.bg-light {
+      background-color: #f8d7da !important;
+      color: #dc3545 !important;
+      font-size: 0.8rem;
+      padding: 3px 8px;
+  }
+  
+    
+    .countdown span {
+      background: #f8f9fa;
+      padding: 2px 6px;
+      border-radius: 5px;
+      color: #333;
+    }
+  
+    .countdown {
+      display: flex;
+      gap: 8px;
+      margin: 12px 0;
+      justify-content: space-between;
+  }
+  
+  .countdown-item {
+      text-align: center;
+      flex: 1;
+  }
+  
+  .countdown-value {
+      display: block;
+      background: #f8f9fa;
+      padding: 5px;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 3px;
+      border: 1px solid #eee;
+  }
+  
+  .countdown-label {
+      font-size: 0.65rem;
+      color: #6c757d;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+  }
+  
+  /* Stock Info Styles */
+  .stock-info {
+      font-size: 0.8rem;
+      color: #6c757d;
+      margin-top: 8px;
+      display: flex;
+      justify-content: space-between;
+  }
+  
+  .stock-info .sold {
+      color: #dc3545;
+      font-weight: 600;
+  }
+  
+  .stock-info .available {
+      color: #28a745;
+      font-weight: 600;
+  }
+  
+  /* Section Header */
+  .deal-section-title {
+      position: relative;
+      padding-left: 15px;
+      font-weight: 700;
+  }
+  
+  .deal-section-title i {
+      margin-right: 10px;
+      color: #dc3545;
+  }
+  
+  .deal-section-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 5px;
+      bottom: 5px;
+      width: 4px;
+      background: #dc3545;
+      border-radius: 4px;
+  }
+    
+    .feature-box {
+      background-color: #f8f9fa;
+      border-radius: 10px;
+      border: 1px solid #e0e0e0;
+      transition: all 0.3s ease;
+      align-items: center;
+    }
+    
+    .feature-box:hover {
+      background-color: #ffffff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+  
+    .banner {
+      background: linear-gradient(to right, #37003c, #d81e5b);
+      height: 350px;
+    }
+    
+    /* Feature icons */
+    .feature-card {
+      padding: 1rem;
+      background: #fff;
+      border-radius: 0.5rem;
+      transition: 0.3s ease-in-out;
+    }
+    .icon-box {
+      width: 60px;
+      height: 60px;
+      margin: 0 auto 0.5rem;
+    }
+    .bounce-hover:hover {
+      animation: bounce 0.6s;
+    }
+    @keyframes bounce {
+      0%   { transform: translateY(0); }
+      30%  { transform: translateY(-10px); }
+      50%  { transform: translateY(0); }
+      70%  { transform: translateY(-5px); }
+      100% { transform: translateY(0); }
+    }
+    
+    /* Category Cards */
+    .category-card {
+      height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 0.5rem;
+      font-weight: bold;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+    .bg-refigerators { background: linear-gradient(to right, #1a1aff, #0099ff); background-image: url('images/fridge.jpeg'); height: 150px; }
+    .bg-airconditioners  { background: linear-gradient(to right, #0066cc, #00ccff);  background-image: url('images/ac.jpeg'); height: 150px; }
+    .bg-washingmachines  { background: linear-gradient(to right, #9900cc, #cc66ff);  background-image: url('images/wash.jpg'); height: 150px; }
+    .bg-speakers { background: linear-gradient(to right, #3333ff, #6699ff);  background-image: url('images/speaker.jpeg'); height: 150px; }
+  
+    .brand-section {
+      background-color: #fff;
+    }
+    
+    .section-heading {
+      font-size: 2rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+    
+    .section-heading span {
+      font-size: 2.2rem;
+      font-weight: bold;
+      color: #000;
+    }
+    
+    .brand-box {
+      background: #fff;
+      border: 2px solid #000;
+      border-radius: 1rem;
+      padding: 1rem 0;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .brand-marquee {
+      width: 100%;
+      overflow: hidden;
+      position: relative;
+    }
+    
+    .brand-track {
+      display: flex;
+      width: max-content;
+      animation: scrollBrands 25s linear infinite;
+      gap: 3rem;
+      align-items: center;
+      padding: 1rem;
+    }
+    
+    .brand-track img {
+      height: 50px;
+      max-width: 100px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+    
+    .brand-track img:hover {
+      transform: scale(1.1);
+    }
+    
+    @keyframes scrollBrands {
+      0% {
+        transform: translateX(0%);
+      }
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+  
+    .picks-section .nav-pills .nav-link {
+      background: #f8f9fa;
+      color: #000;
+      border-radius: 20px;
+      margin-right: 10px;
+      font-weight: 500;
+  }
+  
+  .picks-section .nav-pills .nav-link.active {
+      background-color: #dc3545;
+      color: #fff;
+  }
+  
+  .product-tile {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      padding: 15px;
+      border-radius: 10px;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .product-tile:hover {
+      transform: scale(1.03);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  }
+  
+  
+  .product-tile img {
+      border-radius: 6px;
+      width: 100%;
+      height: 300px;
+      display: block;
+  }
+  
+  .product-hover {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(255, 255, 255, 0.95);
+      padding: 15px;
+      text-align: center;
+      transform: translateY(100%);
+      transition: transform 0.3s ease;
+  }
+  
+  .product-tile:hover .product-hover {
+      transform: translateY(0);
+  }
+  
+  .product-hover h6 {
+      margin-bottom: 5px;
+      font-weight: 600;
+  }
+  
+  
+    
+  .footer-area {
+      background-color: #f8f9fa;
+      color: #333;
+    }
+    
+    .footer-logo {
+      font-size: 32px;
+      font-weight: 700;
+    }
+    .footer-logo .dot {
+      color: #dc3545;
+    }
+    
+    .footer-heading {
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    
+    .footer-area a {
+      color: #555;
+      text-decoration: none;
+    }
+    .footer-area a:hover {
+      text-decoration: underline;
+    }
+    
+    .payment-icons img {
+      width: 40px;
+      margin-right: 8px;
+    }
+    
+    .contact-info i {
+      margin-right: 8px;
+    }
+    
+    .footer-subscribe {
+      background-color: #343a40;
+      color: #fff;
+    }
+    
+    .footer-subscribe input {
+      max-width: 250px;
+      border-radius: 20px;
+      padding-left: 15px;
+    }
+    
+    .footer-bottom {
+      background-color: #fff;
+      border-top: 1px solid #ddd;
+    }
+    
+    .footer-links a {
+      margin: 0 10px;
+      font-weight: 500;
+      color: #555;
+      text-decoration: none;
+    }
+    
+    .footer-links a:hover {
+      color: #dc3545;
+    }
+    
+    .social-icons a {
+      margin: 0 5px;
+      color: #333;
+      font-size: 18px;
+    }
+    .social-icons a:hover {
+      color: #dc3545;
+    }
+  
+    .support-card {
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 1px solid #eee;
+    }
+    .support-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+    }
+    .icon-circle, .arrow-circle {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #000;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    .arrow-circle {
+      border: 1px solid #aaa;
+      color: #000;
+    }
+    /* styles.css */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body, html {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100%;
+    background: linear-gradient(to bottom, #e0f7fa, #ffffff);
+    overflow-x: hidden;
+  }
+  
+  .hero {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+  }
+  
+  .logo {
+    font-size: 2rem;
+    color: #0277bd;
+  }
+  
+  .logo span {
+    color: #00bcd4;
+  }
+  
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+  }
+  
+  nav ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    transition: color 0.3s;
+  }
+  
+  nav ul li a:hover {
+    color: #0277bd;
+  }
+  
+  .content {
+    text-align: center;
+    margin-top: 100px;
+  }
+  
+  .content h2 {
+    font-size: 3rem;
+    color: #01579b;
+    margin-bottom: 20px;
+    animation: fadeInDown 1s ease-out;
+  }
+  
+  .content p {
+    font-size: 1.2rem;
+    color: #555;
+    animation: fadeInUp 1.2s ease-out;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  body {
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  .hero {
+    position: relative;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+    overflow: hidden;
+  }
+  
+  .content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    animation: fadeInDown 1s ease-out both;
+  }
+  
+  .content h2 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    color: #2c3e50;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+    background: linear-gradient(to right, #00bcd4, #3a7bd5);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: textGlow 2s infinite alternate;
+  }
+  
+  .content p {
+    font-size: 1.5rem;
+    color: #7f8c8d;
+    margin-bottom: 30px;
+    animation: fadeInUp 1s ease-out 0.3s both;
+  }
+  
+  button {
+    margin-top: 30px;
+    padding: 15px 40px;
+    background-color: #00bcd4;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border-radius: 50px;
+    transition: all 0.4s;
+    box-shadow: 0 4px 15px rgba(0, 188, 212, 0.4);
+    position: relative;
+    overflow: hidden;
+    animation: fadeInUp 1s ease-out 0.6s both;
+  }
+  
+  button:hover {
+    background-color: #0097a7;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 151, 167, 0.6);
+  }
+  
+  button:active {
+    transform: translateY(1px);
+  }
+  
+  button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, transparent, rgba(255,255,255,0.3), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+  }
+  
+  button:hover::after {
+    transform: translateX(100%);
+  }
+  
+  .floating-images {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 100px;
+    z-index: 1;
+  }
+  
+  
+  
+  /* Background elements */
+  .bg-circle {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(0, 188, 212, 0.1);
+    z-index: 0;
+  }
+  
+  .circle-1 {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    left: -100px;
+    animation: pulse 8s infinite alternate;
+  }
+  
+  .circle-2 {
+    width: 500px;
+    height: 500px;
+    bottom: -200px;
+    right: -200px;
+    animation: pulse 10s infinite alternate-reverse;
+  }
+  
+  /* Snowflakes for cooling effect */
+  .snowflake {
+    position: absolute;
+    color: #00bcd4;
+    font-size: 1em;
+    animation: fall linear infinite;
+    z-index: 1;
+  }
+  
+  /* Animations */
+  @keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  @keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+  
+  @keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+  }
+  
+  @keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes rotateReverse {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(-360deg);
+    }
+  }
+  
+  @keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 0.1;
+    }
+    100% {
+        transform: scale(1.2);
+        opacity: 0.2;
+    }
+  }
+  
+  @keyframes textGlow {
+    0% {
+        text-shadow: 0 0 5px rgba(0, 188, 212, 0.5);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(0, 188, 212, 0.8);
+    }
+  }
+  
+  @keyframes fall {
+    to {
+        transform: translateY(100vh);
+    }
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .content h2 {
+        font-size: 2.5rem;
+    }
+    
+    .content p {
+        font-size: 1.2rem;
+    }
+    
+    .floating-images {
+        gap: 50px;
+    }
+    
+    .floating-images img {
+        width: 120px;
+    }
+  }
+  
+  :root {
+    --electric-blue: #2563eb;
+    --neon-cyan: #00f5d4;
+    --dark-slate: #0b1b35;
+    --light-bg: #f8fafc;
+  }
+  
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background-color: var(--light-bg);
+    overflow-x: hidden;
+  }
+  
+  /* Hero Section */
+  .hero-appliance {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, var(--dark-slate) 0%, #0f172a 100%);
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 5;
+    text-align: center;
+    color: white;
+    padding: 2rem;
+  }
+  
+  .hero-title {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+    background: linear-gradient(to right, white, var(--neon-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    animation: textGlow 3s infinite alternate;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: 400;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+    opacity: 0.9;
+  }
+  
+  .btn-neon {
+    background: transparent;
+    color: var(--neon-cyan);
+    border: 2px solid var(--neon-cyan);
+    padding: 0.8rem 2.5rem;
+    font-weight: 600;
+    border-radius: 50px;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(0, 245, 212, 0.3);
+  }
+  
+  .btn-neon:hover {
+    background: rgba(0, 245, 212, 0.1);
+    transform: translateY(-3px);
+    box-shadow: 0 0 25px rgba(0, 245, 212, 0.5);
+  }
+  
+  /* Appliance Animation */
+  .appliance-container {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin: 3rem auto;
+  }
+  
+  .appliance-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 600px;
+    width: 100%;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.4));
+    animation: floatAppliance 8s infinite ease-in-out;
+  }
+  
+  /* Features Section */
+  .features-section {
+    padding: 5rem 0;
+    background: white;
+  }
+  
+  .feature-card {
+    background: white;
+    border-radius: 16px;
+    padding: 2.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: all 0.4s;
+    height: 100%;
+    border-top: 3px solid var(--electric-blue);
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(37, 99, 235, 0.15);
+  }
+  
+  .feature-icon {
+    font-size: 2.5rem;
+    color: var(--electric-blue);
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Animations */
+  @keyframes floatAppliance {
+    0%, 100% {
+        transform: translate(-50%, -50%) rotate(-2deg);
+    }
+    50% {
+        transform: translate(-50%, -55%) rotate(2deg);
+    }
+  }
+  
+  @keyframes textGlow {
+    0% {
+        text-shadow: 0 0 10px rgba(0, 245, 212, 0.3);
+    }
+    100% {
+        text-shadow: 0 0 20px rgba(0, 245, 212, 0.6);
+    }
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .appliance-img {
+        max-width: 90%;
+    }
+  }
+    
+  body, html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+  }
+  
+  .climate-section {
+    background-color: #0a2540;
+    color: white;
+    display: flex;
+    min-height: 100vh;
+    width: 100%;
+  }
+  
+  .content-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 10%;
+    z-index: 2;
+    max-width: 50%;
+  }
+  
+  .animation-container {
+    flex: 1;
+    position: relative;
+    overflow: hidden;
+    max-width: 50%;
+  }
+  
+  .animated-image {
+    width: 100%;
+    height: 100%;
+    background-image: url('https://media0.giphy.com/media/cm5eRets6W6EuXG8KP/giphy.gif?cid=6c09b952icwo3ippljj9h3vrcvt7zkur7kzgkzmqimuhkwt8&ep=v1_stickers_search&rid=giphy.gif&ct=s');
+    background-size: cover;
+    background-position: center;
+    position: absolute;
+    animation: panImage 20s infinite alternate ease-in-out;
+  }
+  
+  .section-tagline {
+    font-size: 1.2rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #4dabf7;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .section-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -1px;
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .feature-line {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(20px);
+    max-width: 90%;
+  }
+  
+  .cta-buttons {
+    margin-top: 2.5rem;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  
+  .btn-primary {
+    background-color: #4dabf7;
+    border-color: #4dabf7;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-right: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  @keyframes panImage {
+    0% {
+        transform: scale(1) translateX(0) translateY(0);
+    }
+    100% {
+        transform: scale(1.05) translateX(-3%) translateY(-3%);
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .climate-section {
+        flex-direction: column;
+    }
+    
+    .content-col, .animation-container {
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .animation-container {
+        height: 50vh;
+        order: 2;
+    }
+    
+    .content-col {
+        padding: 5% 8%;
+        order: 1;
+        text-align: center;
+    }
+    
+    .section-title {
+        font-size: 2.5rem;
+    }
+    
+    .feature-line {
+        max-width: 100%;
+        font-size: 1rem;
+    }
+    
+    .cta-buttons {
+        justify-content: center;
+    }
+  }
+  
+  @media (max-width: 576px) {
+    .section-title {
+        font-size: 2rem;
+    }
+    
+    .section-tagline {
+        font-size: 1rem;
+    }
+    
+    .btn-primary, .btn-outline-light {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+        margin-bottom: 10px;
+        margin-right: 0;
+        width: 100%;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+    }
+  }
+  
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  
+  .fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* Features Row */
+  .feature-box {
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    background-color: #f8f9fa;
+  }
+  
+  .feature-box:hover {
+    background-color: #e9ecef;
+    transform: translateY(-5px);
+  }
+  
+  /* Support Section */
+  .support-card {
+    transition: all 0.3s ease;
+    border: 1px solid #e9ecef;
+  }
+  
+  .support-card:hover {
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transform: translateY(-5px);
+  }
+  
+  .icon-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .arrow-circle {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .support-card:hover .arrow-circle {
+    opacity: 1;
+    background-color: #0d6efd;
+    color: white;
+  }
+  
+  /* Footer */
+  .footer-area {
+    background-color: #f8f9fa;
+  }
+  
+  .footer-logo {
+    font-weight: 700;
+    color: #212529;
+  }
+  
+  .footer-logo .dot {
+    color: #0d6efd;
+  }
+  
+  .footer-heading {
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #212529;
+  }
+  
+  .footer-area a {
+    color: #6c757d;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+  
+  .footer-area a:hover {
+    color: #0d6efd;
+  }
+  
+  .contact-info li {
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .contact-info i {
+    margin-right: 0.5rem;
+    color: #6c757d;
+  }
+  
+  .footer-subscribe {
+    background-color: #e9ecef;
+  }
+  
+  .footer-bottom {
+    background-color: #212529;
+    color: white;
+  }
+  
+  .social-icons a {
+    color: white;
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+  }
+  
+  .footer-links a {
+    color: white;
+    margin: 0 0.5rem;
+  }
+  
+  .payment-icons img {
+    height: 25px;
+    margin-right: 5px;
+  }
+    </style>
+</head>
+
+<body>
+
+    <div class="hero">
+        <!-- Background elements -->
+        <div class="bg-circle circle-1"></div>
+        <div class="bg-circle circle-2"></div>
+
+        <!-- Snowflakes will be added by JS -->
+
+        <div class="content">
+            <h2>Stay Cool And Top with the Best</h2>
+            <p>Your one-stop shop for Everything</p>
+            <button onclick="explore()">Explore Now</button>
+        </div>
+
+    </div>
+    </div>
+
+
+    <!-- Modern Navigation -->
+    <nav class="navbar navbar-expand-lg nav-modern">
+        <div class="container">
+            <a class="navbar-brand nav-brand" href="#">Electro<span>Home</span></a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarModern">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="topBar">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-modern active" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-modern" href="#">Shop</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-modern" href="#">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-modern" href="#">Contact</a>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center">
+                    <div class="dropdown me-3">
+                        <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button"
+                            id="languageDropdown" data-bs-toggle="dropdown">
+                            <i class="bi bi-globe"></i> EN
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">English</a></li>
+                            <li><a class="dropdown-item" href="#">Arabic</a></li>
+                            <li><a class="dropdown-item" href="#">French</a></li>
+                        </ul>
+                    </div>
+                    <button class="account-btn-modern btn-sm">
+                        <i class="bi bi-person-fill me-1"></i> My Account
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modern Hero Section -->
+    <section class="hero-modern">
+        <div class="hero-bg-modern"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="container">
+            <div class="hero-content-modern">
+                <h1 class="hero-title-modern">Welcome New Beginnings with Grand Festive Deals!</h1>
+                <h2 class="hero-subtitle-modern">Up to 47%* off | Cashback up to $17500*</h2>
+
+                <div class="hero-buttons-modern">
+                    <button class="btn btn-primary-modern btn-modern">BUY APPLIANCES</button>
+                    <button class="btn btn-outline-modern btn-modern">BUY IT & ELECTRONICS</button>
+                </div>
+
+                <div class="hero-features-modern">
+                    <div class="feature-item-modern">
+                        <i class="bi bi-percent"></i> 15% Membership Discount!
+                    </div>
+                    <div class="feature-item-modern">
+                        <i class="bi bi-truck"></i> Free Delivery
+                    </div>
+                    <div class="feature-item-modern">
+                        <i class="bi bi-receipt"></i> No Cost Bill*
+                    </div>
+                </div>
+
+                <p class="hero-disclaimer-modern">
+                    *TMC Apply images are illustrations in nature and actual may vary.
+                    Offer is applicable on select model may vary from model to model.
+                    Sales ratings vary by: 20%.
+                </p>
+            </div>
+        </div>
+        <div class="scroll-down-indicator">
+            <span class="scroll-text">Scroll Down</span>
+            <div class="arrow-down"></div>
+        </div>
+    </section>
+
+        <!-- Deal of the Day -->
+        <div class="my-5">
+            <h4 class="text-danger mb-4"><i class="bi bi-fire"></i> Deal Of The Day</h4>
+            <div class="row g-4">
+                <!-- Product Card 1 -->
+                <div class="col-md-3 col-6">
+                    <div class="card h-100 deal-card">
+                        <span class="badge position-absolute m-2">Sale 27%</span>
+                        <img src="images/machine1.jpeg" class="card-img-top" alt="LG Washing Machine">
+                        <div class="card-body">
+                            <h6 class="card-title">LG 11 kg 5 Star Inverter Fully Automatic Front Load Washing Machine
+                            </h6>
+                            <p class="text-danger fw-bold mb-0">$375.00 <span
+                                    class="badge bg-light text-danger ms-1">Save: $6</span></p>
+
+                            <div class="countdown mt-2" data-end-time="2025-04-07T10:00:00">
+                                <div class="countdown-item">
+                                    <span class="countdown-value days">01</span>
+                                    <span class="countdown-label">Days</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-value hours">02</span>
+                                    <span class="countdown-label">Hours</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-value minutes">42</span>
+                                    <span class="countdown-label">Mins</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-value seconds">07</span>
+                                    <span class="countdown-label">Secs</span>
+                                </div>
+                            </div>
+
+                            <div class="stock-info">
+                                <span class="sold">Sold: 57</span>
+                                <span class="available">Available: 72</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 2 -->
+                <div class="col-md-3 col-6">
+                    <div class="card h-100 deal-card">
+                        <span class="badge position-absolute m-2">Sale 27%</span>
+                        <img src="images/machine2.jpeg" class="card-img-top" alt="Samsung Washing Machine">
+                        <div class="card-body">
+                            <h6 class="card-title">Samsung 9.0 kg Front Load Washing Machine with SmartThings AI &
+                                Superspeed</h6>
+                            <p class="text-danger fw-bold mb-0">$375.00 <span
+                                    class="badge bg-light text-danger ms-1">Save: $6</span></p>
+
+                            <div class="countdown mt-2" data-end-time="2025-04-07T10:00:00">
+                                <div class="countdown-item">
+                                    <span class="countdown-value days">01</span>
+                                    <span class="countdown-label">Days</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-value hours">02</span>
+                                    <span class="countdown-label">Hours</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-value minutes">42</span>
+                                    <span class="countdown-label">Mins</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-value seconds">07</span>
+                                    <span class="countdown-label">Secs</span>
+                                </div>
+                            </div>
+
+                            <div class="stock-info">
+                                <span class="sold">Sold: 57</span>
+                                <span class="available">Available: 72</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 3 -->
+                <div class="col-md-3 col-6">
+                    <div class="card h-100 deal-card">
+                        <span class="badge position-absolute m-2">Sale 27%</span>
+                        <img src="images/ac1.jpeg" class="card-img-top" alt="Haier AC">
+                        <div class="card-body">
+                            <h6 class="card-title">Haier 1.6 Ton 5Star AI Smart Gravity Series AC</h6>
+                            <p class="text-danger fw-bold mb-0">$375.00 <span
+                                    class="badge bg-light text-danger ms-1">Save: $6</span></p>
+
+                            <div class="countdown mt-2" data-end-time="2025-04-07T10:00:00">
+                                <div class="countdown-item">
+                                    <span class="countdown-value days">01</span>
+                                    <span class="countdown-label">Days</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-value hours">02</span>
+                                    <span class="countdown-label">Hours</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-value minutes">42</span>
+                                    <span class="countdown-label">Mins</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-value seconds">07</span>
+                                    <span class="countdown-label">Secs</span>
+                                </div>
+                            </div>
+
+                            <div class="stock-info">
+                                <span class="sold">Sold: 57</span>
+                                <span class="available">Available: 72</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product Card 4 -->
+                <div class="col-md-3 col-6">
+                    <div class="card h-100 deal-card">
+                        <span class="badge position-absolute m-2">Sale 27%</span>
+                        <img src="images/hommer1.png" class="card-img-top" alt="Split AC">
+                        <div class="card-body">
+                            <h6 class="card-title">Split Air Conditioner HS-9F/CH R410A FIXED FAIRY A1</h6>
+                            <p class="text-danger fw-bold mb-0">$375.00 <span
+                                    class="badge bg-light text-danger ms-1">Save: $6</span></p>
+
+                            <div class="countdown mt-2" data-end-time="2025-04-07T10:00:00">
+                                <div class="countdown-item">
+                                    <span class="countdown-value days">01</span>
+                                    <span class="countdown-label">Days</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-value hours">02</span>
+                                    <span class="countdown-label">Hours</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-value minutes">42</span>
+                                    <span class="countdown-label">Mins</span>
+                                </div>
+                                <div class="countdown-item">
+                                    <span class="countdown-value seconds">07</span>
+                                    <span class="countdown-label">Secs</span>
+                                </div>
+                            </div>
+
+                            <div class="stock-info">
+                                <span class="sold">Sold: 57</span>
+                                <span class="available">Available: 72</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Brand Logo Section -->
+        <section class="brand-section py-5">
+            <div class="container text-center">
+                <h2 class="section-heading">GET ALL THE LEADING <br><span>AC BRANDS IN ONE PLACE</span></h2>
+                <div class="brand-box">
+                    <div class="brand-marquee">
+                        <div class="brand-track">
+                            <img src="images/lg.png" alt="Lg">
+                            <img src="images/toshiba.png" alt="Toshiba">
+                            <img src="images/gree.png" alt="Gree">
+                            <img src="images/beko.png" alt="Beko">
+                            <img src="images/general.png" alt="General">
+                            <img src="images/panasonic.png" alt="Panasonic">
+                            <img src="images/sony.png" alt="Sony">
+                            <img src="images/midea.png" alt="Midea">
+                            <img src="images/mtsbshi.png" alt="Mitsubishi">
+                            <img src="images/tcl.png" alt="TCL">
+                            <img src="images/daikin.png" alt="Daikin">
+                            <img src="images/hommer.png" alt="Hommer">
+                            <img src="images/haier.png" alt="Haier">
+                            <img src="images/samsung.png" alt="Samsung">
+                            <img src="images/hisense.png" alt="Hisense">
+                            <!-- Repeat for smooth infinite scroll -->
+                            <img src="images/lg.png" alt="Lg">
+                            <img src="images/toshiba.png" alt="Toshiba">
+                            <img src="images/gree.png" alt="Gree">
+                            <img src="images/beko.png" alt="Beko">
+                            <img src="images/general.png" alt="General">
+                            <img src="images/panasonic.png" alt="Panasonic">
+                            <img src="images/sony.png" alt="Sony">
+                            <img src="images/midea.png" alt="Midea">
+                            <img src="images/mtsbshi.png" alt="Mitsubishi">
+                            <img src="images/tcl.png" alt="TCL">
+                            <img src="images/daikin.png" alt="Daikin">
+                            <img src="images/hommer.png" alt="Hommer">
+                            <img src="images/haier.png" alt="Haier">
+                            <img src="images/samsung.png" alt="Samsung">
+                            <img src="images/hisense.png" alt="Hisense">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="hero-appliance">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Revolutionizing Comfort with Smart Air Conditioning</h1>
+                    <p class="hero-subtitle">Experience cutting-edge air conditioning technology that delivers comfort, energy efficiency, and smart control for every home and business.</p>
+                    
+                    <div class="appliance-container">
+                        <img src="https://img.global.news.samsung.com/global/wp-content/uploads/2020/05/Wind-free-Tech_main_4.gif" 
+                             alt="Smart Home Appliance" 
+                             class="appliance-img"
+                             id="animatedAppliance">
+                    </div>
+                    
+                    <button class="btn btn-neon">Explore Our Solutions</button>
+                </div>
+            </div>
+        </section>
+        
+
+        <!-- Picks for You Section -->
+        <section class="picks-section py-5">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 class="text-danger"><i class="bi bi-star-fill"></i> Picks for You</h4>
+                    <ul class="nav nav-pills" id="picksTabs">
+                        <li class="nav-item">
+                            <a class="nav-link active" data-bs-toggle="pill" href="#best-deal">Best Deal</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="pill" href="#most-popular">Most Popular</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" data-bs-toggle="pill" href="#newest">Newest</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="tab-content">
+                    <!-- Best Deal -->
+                    <div class="tab-pane fade show active" id="best-deal">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="product-tile">
+                                    <img src="images/tv.jpeg" class="img-fluid" alt="LG TV">
+                                    <h6 class="mt-2">LG Smart TV 55"</h6>
+                                    <p class="text-danger fw-bold">$499.00</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="product-tile">
+                                    <img src="images/earbuds.jpeg" class="img-fluid" alt="Product">
+                                    <h6 class="mt-2">Wireless Earbuds</h6>
+                                    <p class="text-danger fw-bold">$59.00</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="product-tile">
+                                    <img src="images/speaker1.jpeg" class="img-fluid" alt="Product">
+                                    <h6 class="mt-2">Portable Speaker</h6>
+                                    <p class="text-danger fw-bold">$89.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Most Popular -->
+                    <div class="tab-pane fade" id="most-popular">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="product-tile">
+                                    <img src="images/ghdst.jpeg" class="img-fluid" alt="Product">
+                                    <h6 class="mt-2">Gaming Headset</h6>
+                                    <p class="text-danger fw-bold">$129.00</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="product-tile">
+                                    <img src="images/btmouse.jpeg" class="img-fluid" alt="Product">
+                                    <h6 class="mt-2">Bluetooth Mouse</h6>
+                                    <p class="text-danger fw-bold">$39.00</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="product-tile">
+                                    <img src="images/swatch.jpeg" class="img-fluid" alt="Product">
+                                    <h6 class="mt-2">Smart Watch</h6>
+                                    <p class="text-danger fw-bold">$149.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Newest -->
+                    <div class="tab-pane fade" id="newest">
+                        <div class="row g-4">
+                            <div class="col-md-4">
+                                <div class="product-tile">
+                                    <img src="images/neon.jpg" class="img-fluid" alt="Product">
+                                    <h6 class="mt-2">Smart Home Hub</h6>
+                                    <p class="text-danger fw-bold">$199.00</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="product-tile">
+                                    <img src="images/cam.jpeg" class="img-fluid" alt="Product">
+                                    <h6 class="mt-2">WiFi Security Cam</h6>
+                                    <p class="text-danger fw-bold">$89.00</p>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="product-tile">
+                                    <img src="images/projector.jpeg" class="img-fluid" alt="Product">
+                                    <h6 class="mt-2">Portable Projector</h6>
+                                    <p class="text-danger fw-bold">$299.00</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="climate-section">
+            <!-- Content Column -->
+            <div class="content-col">
+                <div class="section-tagline">PERFECTLY</div>
+                <h2 class="section-title">CONTROLLED CLIMATE</h2>
+                
+                <div class="feature-line">
+                    SEAMLESS, PERFECTLY CONTROLLED TEMPERATURE KEEPS YOUR ENVIRONMENT
+                </div>
+                <div class="feature-line">
+                    COMFORTABLE AND CONSISTENT—NO FLUCTUATIONS, JUST A POLISHED, FLUID EXPERIENCE,
+                </div>
+                <div class="feature-line">
+                    IDEAL FOR HOMES, OFFICES, AND COMMERCIAL SPACES. OUR SYSTEMS ARE READY TO INSTALL
+                </div>
+                <div class="feature-line">
+                    STRAIGHT AWAY, EFFORTLESSLY INTEGRATING INTO ANY SPACE.
+                </div>
+                
+                <div class="cta-buttons d-flex flex-wrap">
+                    <a href="#" class="btn btn-primary">
+                        EXPLORE SYSTEMS
+                        <i class="bi bi-arrow-right ms-2"></i>
+                    </a>
+                    <a href="#" class="btn btn-outline-light">
+                        HOW IT WORKS
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Animated Image Container -->
+            <div class="animation-container">
+                <div class="animated-image"></div>
+            </div>
+        </section>
+     <!-- Features Row -->
+     <section class="fade-in">
+        <div class="container mb-5">
+            <div class="row mt-3">
+                <div class="col">
+                    <div class="feature-box p-3 h-100">
+                        <i class="bi bi-truck fs-2 text-dark"></i>
+                        <h6 class="mt-2 mb-1">Free delivery</h6>
+                        <p class="small text-muted mb-0">Free shipping on orders over $20</p>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="feature-box p-3 h-100">
+                        <i class="bi bi-headset fs-2 text-dark"></i>
+                        <h6 class="mt-2 mb-1">Support 24/7</h6>
+                        <p class="small text-muted mb-0">24 hours a day, 7 days a week</p>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="feature-box p-3 h-100">
+                        <i class="bi bi-credit-card fs-2 text-dark"></i>
+                        <h6 class="mt-2 mb-1">Payment</h6>
+                        <p class="small text-muted mb-0">Pay with multiple credit cards</p>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="feature-box p-3 h-100">
+                        <i class="bi bi-shield-check fs-2 text-dark"></i>
+                        <h6 class="mt-2 mb-1">Reliable</h6>
+                        <p class="small text-muted mb-0">Trusted by 2000+ major brands</p>
+                    </div>
+                </div>
+
+                <div class="col">
+                    <div class="feature-box p-3 h-100">
+                        <i class="bi bi-arrow-repeat fs-2 text-dark"></i>
+                        <h6 class="mt-2 mb-1">Guarantee</h6>
+                        <p class="small text-muted mb-0">Within 30 days for exchange</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Support Section -->
+    <section class="py-5 bg-light fade-in">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2 class="fw-bold">Need help?</h2>
+                    <p class="text-muted mb-0">We're here to provide all the help you need.</p>
+                </div>
+                <a href="#" class="btn btn-outline-dark rounded-pill">Get support</a>
+            </div>
+
+            <div class="row g-4">
+                <!-- Support Cards -->
+                <div class="col-md-3 col-sm-6">
+                    <div class="support-card p-4 rounded-4 h-100 bg-white">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="fw-semibold">Product registration</h5>
+                            <div class="icon-circle">+</div>
+                        </div>
+                        <p class="text-muted">Registering your product will help you get faster support.</p>
+                        <div class="arrow-circle mt-auto ms-auto">→</div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="support-card p-4 rounded-4 h-100 bg-white">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="fw-semibold">Product support</h5>
+                            <i class="bi bi-display fs-4"></i>
+                        </div>
+                        <p class="text-muted">Find manual, troubleshoot and warranty of your product.</p>
+                        <div class="arrow-circle mt-auto ms-auto">→</div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="support-card p-4 rounded-4 h-100 bg-white">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="fw-semibold">Order support</h5>
+                            <i class="bi bi-receipt fs-4"></i>
+                        </div>
+                        <p class="text-muted">Track your order and check order FAQ.</p>
+                        <div class="arrow-circle mt-auto ms-auto">→</div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="support-card p-4 rounded-4 h-100 bg-white">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="fw-semibold">Repair request</h5>
+                            <i class="bi bi-wrench fs-4"></i>
+                        </div>
+                        <p class="text-muted">Request repair service conveniently online.</p>
+                        <div class="arrow-circle mt-auto ms-auto">→</div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="support-card p-4 rounded-4 h-100 bg-white">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="fw-semibold">Live chat</h5>
+                            <i class="bi bi-chat-dots fs-4"></i>
+                        </div>
+                        <p class="text-muted">Chat with experts for real-time support and offers.</p>
+                        <div class="arrow-circle mt-auto ms-auto">→</div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="support-card p-4 rounded-4 h-100 bg-white">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="fw-semibold">WhatsApp</h5>
+                            <i class="bi bi-whatsapp fs-4"></i>
+                        </div>
+                        <p class="text-muted">Chat with us via the most popular messenger.</p>
+                        <div class="arrow-circle mt-auto ms-auto">→</div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="support-card p-4 rounded-4 h-100 bg-white">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="fw-semibold">Email us</h5>
+                            <i class="bi bi-envelope fs-4"></i>
+                        </div>
+                        <p class="text-muted">Send an email to our service support team.</p>
+                        <div class="arrow-circle mt-auto ms-auto">→</div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-6">
+                    <div class="support-card p-4 rounded-4 h-100 bg-white">
+                        <div class="d-flex justify-content-between align-items-start">
+                            <h5 class="fw-semibold">Call us</h5>
+                            <i class="bi bi-telephone fs-4"></i>
+                        </div>
+                        <p class="text-muted">Available 24/7 (except holidays). Call us anytime.</p>
+                        <div class="arrow-circle mt-auto ms-auto">→</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer-area pt-5 fade-in">
+        <div class="container">
+            <div class="row gy-4">
+                <!-- Logo & Payments -->
+                <div class="col-md-3">
+                    <h2 class="footer-logo">ElectroHome<span class="dot">.</span></h2>
+                    <p class="mb-2">We accept:</p>
+                    <div class="payment-icons">
+                        <img src="images/visa.png" alt="Visa">
+                        <img src="images/paypal.png" alt="PayPal">
+                        <img src="images/discover.png" alt="Discover">
+                        <img src="images/maestro.png" alt="Maestro">
+                    </div>
+                </div>
+
+                <!-- Get Help -->
+                <div class="col-md-2">
+                    <h6 class="footer-heading">Get help</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Delivery Information</a></li>
+                        <li><a href="#">Sale Terms & Conditions</a></li>
+                        <li><a href="#">Returns & Refunds</a></li>
+                        <li><a href="#">Privacy Notice</a></li>
+                        <li><a href="#">Shopping FAQs</a></li>
+                    </ul>
+                </div>
+
+                <!-- Categories -->
+                <div class="col-md-3">
+                    <h6 class="footer-heading">Popular categories</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Laptops & Computers</a></li>
+                        <li><a href="#">Cameras & Photography</a></li>
+                        <li><a href="#">Smart Phones & Tablets</a></li>
+                        <li><a href="#">Video Games & Consoles</a></li>
+                        <li><a href="#">TV & Audio</a></li>
+                        <li><a href="#">Gadgets</a></li>
+                        <li><a href="#">Waterproof Headphones</a></li>
+                    </ul>
+                </div>
+
+                <!-- Customer Care -->
+                <div class="col-md-2">
+                    <h6 class="footer-heading">Customer Care</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#">My Account</a></li>
+                        <li><a href="#">Track your Order</a></li>
+                        <li><a href="#">Customer Service</a></li>
+                        <li><a href="#">Returns/Exchange</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Product Support</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-md-2">
+                    <h6 class="footer-heading">Contact</h6>
+                    <ul class="list-unstyled contact-info">
+                        <li><i class="bi bi-geo-alt"></i> 8500 Lorem Street Chicago, IL</li>
+                        <li><i class="bi bi-telephone"></i> <span class="text-danger fw-bold">+8(800) 123 4567</span></li>
+                        <li><i class="bi bi-envelope"></i> <a href="mailto:onsus@support.com">ElectroHome@support.com</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Subscribe Section -->
+        <div class="footer-subscribe mt-5 py-4">
+            <div class="container d-md-flex justify-content-between align-items-center">
+              <div class="container d-md-flex justify-content-between align-items-center">
+                <div class="mb-3 mb-md-0 text-black">
+                    <i class="bi bi-envelope-fill me-2"></i> 
+                    <strong>10% Off Your First Order</strong> — Be the first to
+                    know about offers, new products and discounts
+                </div>
+
+                <div class="subscribe-form d-flex">
+                    <input type="email" placeholder="Enter your email address" class="form-control me-2">
+                    <div>
+                    <button class="btn btn-danger">Subscribe</button>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom py-3 text-center">
+            <div class="social-icons mb-2">
+                <a href="#"><i class="bi bi-facebook"></i></a>
+                <a href="#"><i class="bi bi-x"></i></a>
+                <a href="#"><i class="bi bi-instagram"></i></a>
+                <a href="#"><i class="bi bi-linkedin"></i></a>
+                <a href="#"><i class="bi bi-whatsapp"></i></a>
+            </div>
+            <div class="footer-links mb-2">
+                <a href="#">New arrivals</a>
+                <a href="#">Best sale</a>
+                <a href="#">Value of the day</a>
+                <a href="#">Top 100 offers</a>
+                <a href="#">Blog</a>
+                <a href="#">🔥 50% OFF</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+       // Initialize all countdown timers
+document.addEventListener('DOMContentLoaded', function() {
+    // Countdown functionality
+    const countdowns = document.querySelectorAll('.countdown');
+    
+    countdowns.forEach(countdown => {
+        const endTime = countdown.getAttribute('data-end-time');
+        const endDate = new Date(endTime).getTime();
+        
+        // Update the countdown every second
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = endDate - now;
+            
+            // If the countdown is finished
+            if (distance < 0) {
+                // Show current time instead of expired message
+                const currentTime = new Date();
+                const hours = currentTime.getHours().toString().padStart(2, '0');
+                const minutes = currentTime.getMinutes().toString().padStart(2, '0');
+                const seconds = currentTime.getSeconds().toString().padStart(2, '0');
+                
+                countdown.innerHTML = `
+                    <div class="current-time">
+                        <span class="hours">${hours}</span>:
+                        <span class="minutes">${minutes}</span>:
+                        <span class="seconds">${seconds}</span>
+                    </div>
+                `;
+                return; // Continue updating the time in the next interval
+            }
+            
+            // Time calculations
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            // Update the display
+            countdown.querySelector('.days').textContent = days.toString().padStart(2, '0');
+            countdown.querySelector('.hours').textContent = hours.toString().padStart(2, '0');
+            countdown.querySelector('.minutes').textContent = minutes.toString().padStart(2, '0');
+            countdown.querySelector('.seconds').textContent = seconds.toString().padStart(2, '0');
+            
+        }, 1000);
+    });
+    
+    // Category card animation on scroll
+    const categoryCards = document.querySelectorAll('.category-card');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    categoryCards.forEach(card => {
+        card.style.opacity = 0;
+        card.style.transform = 'translateY(20px)';
+        card.style.transition = 'all 0.6s ease';
+        observer.observe(card);
+    });
+});
+
+// Explore function for smooth scrolling
+function explore() {
+    const topBar = document.getElementById("topBar");
+    if (topBar) {
+        // Disable scroll while animating
+        document.body.style.overflow = "hidden";
+    
+        topBar.scrollIntoView({ behavior: "smooth" });
+    
+        // Re-enable scroll after scrolling completes (~1 second)
+        setTimeout(() => {
+            document.body.style.overflow = "auto";
+        }, 1000);
+    }
+}
+
+// Snowflake creation function
+function createSnowflakes() {
+    const snowflakesCount = 30;
+    const hero = document.querySelector('.hero');
+    
+    for (let i = 0; i < snowflakesCount; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.innerHTML = '❄';
+        
+        // Random properties
+        const size = Math.random() * 1.5 + 0.5;
+        const posX = Math.random() * window.innerWidth;
+        const duration = Math.random() * 10 + 5;
+        const delay = Math.random() * 5;
+        const opacity = Math.random() * 0.5 + 0.3;
+        
+        snowflake.style.left = `${posX}px`;
+        snowflake.style.fontSize = `${size}em`;
+        snowflake.style.animationDuration = `${duration}s`;
+        snowflake.style.animationDelay = `${delay}s`;
+        snowflake.style.opacity = opacity;
+        
+        hero.appendChild(snowflake);
+    }
+}
+
+// Initialize when page loads
+window.onload = function() {
+    createSnowflakes();
+    
+    // Add hover effect to images
+    const images = document.querySelectorAll('.floating-images img');
+    images.forEach(img => {
+        img.addEventListener('mouseover', () => {
+            img.style.transform = 'scale(1.1)';
+            img.style.filter = 'drop-shadow(0 15px 30px rgba(0,0,0,0.3))';
+        });
+        
+        img.addEventListener('mouseout', () => {
+            img.style.transform = '';
+            img.style.filter = '';
+            
+        });
+    });
+};
+
+document.addEventListener('DOMContentLoaded', function() {
+    const appliance = document.getElementById('animatedAppliance');
+    let rotate = 0;
+    let scale = 1;
+    let direction = 1;
+    
+    function animateAppliance() {
+        // Gentle rotation
+        rotate += 0.1 * direction;
+        if (Math.abs(rotate) > 2) direction *= -1;
+        
+        // Subtle pulsing effect
+        scale = 1 + Math.sin(Date.now() / 1000) * 0.02;
+        
+        // Apply transformations
+        appliance.style.transform = `translate(-50%, -50%) rotate(${rotate}deg) scale(${scale})`;
+        
+        requestAnimationFrame(animateAppliance);
+    }
+    
+    // Start animation
+    animateAppliance();
+    
+    // Interactive hover effect
+    appliance.addEventListener('mouseenter', () => {
+        appliance.style.filter = 'drop-shadow(0 25px 40px rgba(0, 245, 212, 0.6))';
+    });
+    
+    appliance.addEventListener('mouseleave', () => {
+        appliance.style.filter = 'drop-shadow(0 20px 30px rgba(0, 0, 0, 0.4))';
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    // Animate elements on page load
+    const elements = [
+        '.section-tagline',
+        '.section-title',
+        '.feature-line:nth-child(1)',
+        '.feature-line:nth-child(2)',
+        '.feature-line:nth-child(3)',
+        '.feature-line:nth-child(4)',
+        '.cta-buttons'
+    ];
+    
+    elements.forEach((selector, index) => {
+        const element = document.querySelector(selector);
+        if (element) {
+            setTimeout(() => {
+                element.style.opacity = '1';
+                element.style.transform = 'translateY(0)';
+                element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            }, 150 * index);
+        }
+    });
+});
+document.addEventListener('DOMContentLoaded', function() {
+    // Add fade-in animation to all sections
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const fadeInObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+            }
+        });
+    }, {
+        threshold: 0.1
+    });
+    
+    fadeElements.forEach(element => {
+        fadeInObserver.observe(element);
+    });
+    
+    // Animate support card arrows on hover
+    const supportCards = document.querySelectorAll('.support-card');
+    supportCards.forEach(card => {
+        card.addEventListener('mouseenter', () => {
+            card.querySelector('.arrow-circle').style.opacity = '1';
+            card.querySelector('.arrow-circle').style.transform = 'translateX(5px)';
+        });
+        
+        card.addEventListener('mouseleave', () => {
+            card.querySelector('.arrow-circle').style.opacity = '0';
+            card.querySelector('.arrow-circle').style.transform = 'translateX(0)';
+        });
+    });
+});
+    </script>
+</body>
+
+</html>
